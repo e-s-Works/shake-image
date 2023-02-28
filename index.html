@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="e.s. Works">
+	<title>shake image</title>
+</head>
+<body>
+	<div>
+		<a href="javascript:void (function () {'use strict';var elem = getRandomElement('img');shake(elem);function getRandomElement(tagName) {var elems = document.querySelectorAll(tagName);var max = elems.length;var i = Math.floor(max * Math.random());return elems[i];}function shake(element) {const SHAKE_TIMES = 2;const COMPLETION_TIME_MS = 500;const INTERVAL_MS = 25;const DISTANCE_PX = 5;var originalCssText = element.style.cssText;element.style.position = 'relative';var startTime = (new Date()).getTime();animate();function animate() {var nowTime = (new Date()).getTime();var elapsedTime = nowTime - startTime;if (elapsedTime < COMPLETION_TIME_MS) {var completionRate = elapsedTime / COMPLETION_TIME_MS;var x = DISTANCE_PX * Math.sin(completionRate * SHAKE_TIMES * (2 * Math.PI));element.style.left = `${x}px`;setTimeout(animate, INTERVAL_MS);} else {element.style = originalCssText;}}};}());">ランダムで選んだ画像を動かすアニメーションを実行する</a>
+	</div>
+	<div>
+		<img src="img.png">
+		<img src="img.png">
+		<img src="img.png">
+	</div>
+</body>
+</html>
